@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "798968834247",
+    "firebase_url": "https://devicescanner-3a767.firebaseio.com",
+    "project_id": "devicescanner-3a767",
+    "storage_bucket": "devicescanner-3a767.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798968834247:android:2fe4544347d5b719",
+        "android_client_info": {
+          "package_name": "com.example.android.devicescanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "798968834247-prckbr52s7912m70qsb30095bg8cs693.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.devicescanner",
+            "certificate_hash": "75eb719c0662dbff19cddf28bed3d37b124365a0"
+          }
+        },
+        {
+          "client_id": "798968834247-k6jdie95uutr6g2nh35o81eimj1j9jua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL1UFUxESJ9KKYiGubCIo5AvTOsia6cIU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "798968834247-k6jdie95uutr6g2nh35o81eimj1j9jua.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

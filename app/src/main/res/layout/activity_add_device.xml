@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.devicescanner.AddDeviceActivity"
+    android:orientation="vertical">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Manf Name:"
+        android:layout_marginLeft="10dp"
+        android:textSize="16dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_manf_name"
+        android:hint="Add Manf Name (Ex: Samsung)"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Model Name:"
+        android:layout_marginLeft="10dp"
+        android:textSize="16dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_model_name"
+        android:hint="Add Device Name (Ex: Galaxy S7)"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Device Version"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_version_name"
+        android:hint="Add Firmware Version (7.0.0)"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Internal Memory"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="32 GB"
+        android:layout_marginTop="10dp"
+        android:id="@+id/text_storage_size"
+        android:layout_marginLeft="10dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_marginTop="10dp"
+        android:id="@+id/button_next"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Skip"
+        android:layout_marginTop="10dp"
+        android:id="@+id/button_skip"
+        android:layout_gravity="center"/>
+
+
+
+
+
+</android.support.v7.widget.LinearLayoutCompat>

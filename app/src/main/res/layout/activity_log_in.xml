@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.devicescanner.LogInActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Email"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Entery your Email Id"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:inputType="textEmailAddress"
+        android:id="@+id/text_email_id"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Password"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Entery your Password"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        android:id="@+id/text_password"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SignIn"
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/button_sign_in"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Please contact Admin if you are unable to access your account"
+        android:layout_marginTop="30dp"/>
+
+
+</android.support.v7.widget.LinearLayoutCompat>
