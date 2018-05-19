@@ -25,17 +25,11 @@ import com.google.zxing.integration.android.IntentResult;
 import static com.example.android.devicescanner.Constants.INTENT_DEVICE_ID;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView imageView;
-    Button button;
     Button btnScan;
-    EditText editText;
-    String EditTextValue ;
     Button editDeviceDetails;
     Button assignDevice;
-    Thread thread ;
     public final static int QRcodeWidth = 350 ;
-    Bitmap bitmap ;
-    String deviceId;
+    String newDeviceId;
     private FirebaseAuth mAuth;
 
 
@@ -47,41 +41,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final Activity activity = this;
 
-        imageView = (ImageView)findViewById(R.id.imageView);
-        editText = (EditText)findViewById(R.id.editText);
-        button = (Button)findViewById(R.id.button);
         btnScan = (Button)findViewById(R.id.btnScan);
         tv_qr_readTxt = (TextView) findViewById(R.id.tv_qr_readTxt);
         mAuth = FirebaseAuth.getInstance();
-        deviceId = getIntent().getStringExtra(INTENT_DEVICE_ID);
+        newDeviceId = getIntent().getStringExtra(INTENT_DEVICE_ID);
 
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-
-                if(!editText.getText().toString().isEmpty()){
-                    EditTextValue = editText.getText().toString();
-
-                    try {
-                        bitmap = TextToImageEncode(EditTextValue);
-
-                        imageView.setImageBitmap(bitmap);
-
-                    } catch (WriterException e) {
-                        e.printStackTrace();
-                    }
-                }
-                else{
-                    editText.requestFocus();
-                    Toast.makeText(MainActivity.this, "Please Enter Your Scanned Test" , Toast.LENGTH_LONG).show();
-                }
-
-            }
-
-        });
 
 
 
@@ -127,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     private void moveToAssignDeviceActivity() {
 
         Intent moveToAssignDeviceActivity = new Intent(this, AssignDeviceActivity.class);
-        moveToAssignDeviceActivity.putExtra(Constants.INTENT_DEVICE_ID, deviceId);
+        moveToAssignDeviceActivity.putExtra(Constants.INTENT_DEVICE_ID, newDeviceId);
         startActivity(moveToAssignDeviceActivity);
     }
 
@@ -136,44 +100,6 @@ public class MainActivity extends AppCompatActivity {
         Intent  moveToAddDeviceActivity = new Intent(this, AddDeviceActivity.class);
         startActivity(moveToAddDeviceActivity);
     }
-
-
-    Bitmap TextToImageEncode(String Value) throws WriterException {
-        BitMatrix bitMatrix;
-        try {
-            bitMatrix = new MultiFormatWriter().encode(
-                    Value,
-                    BarcodeFormat.DATA_MATRIX.QR_CODE,
-                    QRcodeWidth, QRcodeWidth, null
-            );
-
-        } catch (IllegalArgumentException Illegalargumentexception) {
-
-            return null;
-        }
-        int bitMatrixWidth = bitMatrix.getWidth();
-
-        int bitMatrixHeight = bitMatrix.getHeight();
-
-        int[] pixels = new int[bitMatrixWidth * bitMatrixHeight];
-
-        for (int y = 0; y < bitMatrixHeight; y++) {
-            int offset = y * bitMatrixWidth;
-
-            for (int x = 0; x < bitMatrixWidth; x++) {
-
-                pixels[offset + x] = bitMatrix.get(x, y) ?
-                        getResources().getColor(R.color.colorPrimaryDark):getResources().getColor(R.color.colorPrimary);
-            }
-        }
-        Bitmap bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight, Bitmap.Config.ARGB_4444);
-
-        bitmap.setPixels(pixels, 0, 350, 0, 0, bitMatrixWidth, bitMatrixHeight);
-        return bitmap;
-    }
-
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -185,14 +111,17 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Log.e("Scan", "Scanned");
 
-                tv_qr_readTxt.setText(result.getContents());
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+                newDeviceId = result.getContents();
+                tv_qr_readTxt.setText(newDeviceId);
+
+                Toast.makeText(this, "Scanned: " + newDeviceId, Toast.LENGTH_LONG).show();
             }
         } else {
             // This is important, otherwise the result will not be passed to the fragment
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
 
 
 

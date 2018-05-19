@@ -27,7 +27,7 @@ public class AssignDeviceActivity extends AppCompatActivity {
     String assigneeName;
     Button submitButton;
     private FirebaseAuth mAuth;
-    String deviceId;
+    String newDeviceId;
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     Date date = new Date();
     String assigned_date = formatter.format(date);
@@ -79,10 +79,10 @@ public class AssignDeviceActivity extends AppCompatActivity {
 
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
         final Map<String, Object> user = new HashMap<>();
-        deviceId = getIntent().getStringExtra(INTENT_DEVICE_ID);
+        newDeviceId = getIntent().getStringExtra(INTENT_DEVICE_ID);
         user.put("assigned_to", assigneeName);
         user.put("assigned_date", assigned_date);
-        db.collection("devices").document(deviceId).collection("user").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        db.collection("devices").document(newDeviceId).collection("user").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
                 userId =  documentReference.getId();

@@ -35,7 +35,7 @@ public class AddDeviceActivity extends AppCompatActivity {
     Button nextButton;
     Button skipButton;
     private FirebaseAuth mAuth;
-    String deviceId;
+    String newDeviceId;
     String TAG = "Device_id";
 
 
@@ -140,8 +140,8 @@ public class AddDeviceActivity extends AppCompatActivity {
         db.collection("devices").add(device).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
-                deviceId =  documentReference.getId();
-                Log.d(TAG, "DocumentSnapshot added with ID: " + deviceId);
+                newDeviceId =  documentReference.getId();
+                Log.d(TAG, "DocumentSnapshot added with ID: " + newDeviceId);
                 moveToScannerActivity();
             }
 
@@ -157,7 +157,7 @@ public class AddDeviceActivity extends AppCompatActivity {
 
     private void moveToScannerActivity() {
         Intent moveToScannerActivity = new Intent(this, MainActivity.class);
-        moveToScannerActivity.putExtra(Constants.INTENT_DEVICE_ID, deviceId);
+        moveToScannerActivity.putExtra(Constants.INTENT_DEVICE_ID, newDeviceId);
         startActivity(moveToScannerActivity);
     }
 }
