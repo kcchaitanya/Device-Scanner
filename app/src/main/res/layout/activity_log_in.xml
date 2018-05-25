@@ -47,7 +47,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SignIn"
+        android:text="Sign In"
         android:layout_margin="20dp"
         android:layout_gravity="center_horizontal"
         android:id="@+id/button_sign_in"/>
@@ -58,6 +58,14 @@
         android:textAlignment="center"
         android:text="Please contact Admin if you are unable to access your account"
         android:layout_marginTop="30dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Device Details"
+        android:id="@+id/button_device_details"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"/>
 
 
 </android.support.v7.widget.LinearLayoutCompat>

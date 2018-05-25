@@ -7,5 +7,7 @@ package com.example.android.devicescanner;
 public class Constants {
 
     public static final String INTENT_DEVICE_ID = "device_id";
+    public static final String INTENT_USER_ID = "user_id";
+    public static final String INTENT_USER_NAME = "user_name";
 
 }

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.android.devicescanner.AddDeviceActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
 
 
@@ -24,6 +30,8 @@
         android:hint="Add Manf Name (Ex: Samsung)"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:maxLines="1"
         />
 
     <TextView
@@ -41,6 +49,9 @@
         android:hint="Add Device Name (Ex: Galaxy S7)"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:maxLines="1"
+
         />
 
     <TextView
@@ -58,6 +69,9 @@
         android:hint="Add Firmware Version (7.0.0)"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:maxLines="1"
+
         />
 
     <TextView
@@ -75,7 +89,111 @@
         android:layout_marginTop="10dp"
         android:id="@+id/text_storage_size"
         android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:maxLines="1"
+
         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="IMEI Number"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="1234 3456 567"
+        android:layout_marginTop="10dp"
+        android:id="@+id/text_imei_number"
+        android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:maxLines="1"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Serial Number"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="RZ8J92H3N9B"
+        android:layout_marginTop="10dp"
+        android:id="@+id/text_serial_number"
+        android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:maxLines="1"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mac Address"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="B8:D7:AF:0C:7B:72"
+        android:layout_marginTop="10dp"
+        android:id="@+id/text_mac_address"
+        android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:maxLines="1"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Platform"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Android"
+        android:layout_marginTop="10dp"
+        android:id="@+id/text_platform"
+        android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:maxLines="1"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MM ID:"
+        android:textSize="16dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="MMH - 0151"
+        android:layout_marginTop="10dp"
+        android:id="@+id/text_mm_id"
+        android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:maxLines="1"
+
+        />
+
 
     <Button
         android:layout_width="wrap_content"
@@ -97,4 +215,7 @@
 
 
 
+
+
 </android.support.v7.widget.LinearLayoutCompat>
+</ScrollView>

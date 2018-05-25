@@ -1,5 +1,7 @@
 package com.example.android.devicescanner;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -26,12 +28,17 @@ public class LogInActivity extends AppCompatActivity {
     Button signInButton;
     private FirebaseAuth mAuth;
     String TAG = "SIGN_IN";
+    ProgressDialog progress;
+    Button getDeviceDetails;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
         mAuth = FirebaseAuth.getInstance();
+        final Activity activity = this;
+        activity.setTitle("Log In");
 
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -41,6 +48,7 @@ public class LogInActivity extends AppCompatActivity {
             return;
         }
         initializeView();
+        initializeProgressDialogue();
 
     }
 
@@ -56,15 +64,25 @@ public class LogInActivity extends AppCompatActivity {
         editEmailTextView = findViewById(R.id.text_email_id);
         editPasswordTextView = findViewById(R.id.text_password);
         signInButton = findViewById(R.id.button_sign_in);
+
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                if (validateInputFields()){
                    signInUser(email, password);
+                   progress.show();
                }
 
 
+            }
+        });
+
+        getDeviceDetails = findViewById(R.id.button_device_details);
+        getDeviceDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToAddDeviceActivity();
             }
         });
 
@@ -131,5 +149,12 @@ public class LogInActivity extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    public void initializeProgressDialogue(){
+        progress = new ProgressDialog(this);
+        progress.setTitle("Loading");
+        progress.setMessage("Wait while loading...");
+        progress.setCancelable(true); // disable dismiss by tapping outside of the dialog
     }
 }
