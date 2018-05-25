@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     String newDeviceId;
     private FirebaseAuth mAuth;
     ProgressDialog progress;
-
+    Button viewHistoryDetails;
 
     TextView tv_qr_readTxt;
 
@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         editassignedTo = findViewById(R.id.text_assigned_to);
         editDeviceDetails = findViewById(R.id.edit_device_details);
 
+
         editDeviceDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +96,13 @@ public class MainActivity extends AppCompatActivity {
 
         assignDevice = findViewById(R.id.button_assign_device);
         tv_qr_readTxt.setText(newDeviceId);
-
+        viewHistoryDetails = findViewById(R.id.view_history_details);
+        viewHistoryDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Development is n progress", Toast.LENGTH_SHORT).show();
+            }
+        });
         if (assignedTo != null) {
 
             FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -150,11 +157,10 @@ public class MainActivity extends AppCompatActivity {
 
             } else {
                 Log.e("Scan", "Scanned");
-
+                progress.show();
                 newDeviceId = result.getContents();
                 tv_qr_readTxt.setText(newDeviceId);
-                progress.show();
-
+                progress.dismiss();
                 if (assignedTo == null) {
 
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -162,15 +168,16 @@ public class MainActivity extends AppCompatActivity {
                     docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            String assigneeName = (String) documentSnapshot.get("assigned_to");
-                            editassignedTo.setText(assigneeName);
+
+                            assignedTo = (String) documentSnapshot.get("assigned_to");
+                            editassignedTo.setText(assignedTo);
                             progress.dismiss();
                         }
                     });
                 } else
 
                 {
-                    editassignedTo.setText("None");
+                    editassignedTo.setText(assignedTo);
                 }
 
 
